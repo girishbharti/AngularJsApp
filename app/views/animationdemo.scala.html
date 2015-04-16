@@ -1,0 +1,67 @@
+@* animationdemo Template File *@
+@(param: Any)
+
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="UTF-8">
+        <title>@param</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("bootstrap-3.3.2-dist/css/bootstrap.min.css")" )>        
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/MyStyle.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("bootstrap-3.3.2-dist/js/jquery_2.1.1.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("bootstrap-3.3.2-dist/js/bootstrap.min.js")" type="text/javascript"></script>
+    </head>
+    <body>
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-12">
+    		<div id="wrapper">
+				    <h1>Animated Scroll Effects</h1>
+				 
+				    <p class="desc">Continue scrolling down to see the magic.</p>
+				 
+				    <p class="desc">Animated blocks use CSS classes to setup direction and flow of each item.</p>
+				 
+				    <br><br><br><br>
+				 
+				    <div class="animateblock centerleft">
+				      <img href="@routes.Assets.at("images/image.jpeg")" alt="macbook icon">
+				    </div>
+    		</div>
+    	</div>
+    </div>
+    </body>
+</html>
+<script>
+	$(function(){
+	  var $elems = $('.animateblock');
+	  var winheight = $(window).height();
+	  var fullheight = $(document).height();
+	 
+	  $(window).scroll(function(){
+	    animate_elems();
+	  });
+
+	  function animate_elems() {
+		    wintop = $(window).scrollTop(); // calculate distance from top of window
+		 
+		    // loop through each item to check when it animates
+		    $elems.each(function(){
+		      $elm = $(this);
+		 
+		      if($elm.hasClass('animated')) { return true; } // if already animated skip to the next item
+		 
+		      topcoords = $elm.offset().top; // element's distance from top of page in pixels
+		 
+		      if(wintop > (topcoords - (winheight*.75))) {
+		        // animate when top of the window is 3/4 above the element
+		        $elm.addClass('animated');
+		      }
+		    });
+		  } // end animate_elems()
+		});
+
+</script>

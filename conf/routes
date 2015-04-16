@@ -1,0 +1,16 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                       	    controllers.Application.index
+POST    /savecontact					controllers.Application.savecontact
+GET		/showall						controllers.Application.showall
+GET		/addnew							controllers.Application.addnew
+GET		/getdpform						controllers.Application.getdpform
+POST	/upload							controllers.Application.upload
+GET		/square							controllers.Application.square
+POST	/calsquare						controllers.Application.calsquare
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

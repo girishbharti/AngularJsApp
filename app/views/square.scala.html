@@ -1,0 +1,22 @@
+@* square Template File *@
+@(title:String)(implicit flash: play.api.mvc.Flash)
+
+@main("Square"){
+	
+	<div style="background-color:yellow;">
+	
+			@flash.get("square").map { message =>
+				<div class="alert alert-dismissable alert-success">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<strong>Square: </strong> @message
+				</div>
+			}.getOrElse{Error Found in flash}
+		<form action="/calsquare" method="post">
+			<br/>
+			Enter number to find <input type="text" name="number"/><br/>
+			<input type="submit" value="Square">	
+		</form>
+	
+	</div>
+	
+}

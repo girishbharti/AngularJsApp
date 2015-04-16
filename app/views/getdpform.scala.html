@@ -1,0 +1,15 @@
+@* getdpform Template File *@
+@import helper._
+@(param: String)
+
+@main(param){
+	@helper.form(action = routes.Application.upload, 'enctype -> "multipart/form-data") {
+		<div>
+	    	<img src="@routes.Assets.at("/images/emp.jpg")" style="height:180px; width:150px;border-style: solid; border-width: 5px;" alt="Image"/>
+	    	<input type="file" name="picture">
+	    	<p>
+	    	    <input type="submit">
+	    	</p>
+    	</div>
+	}
+}

@@ -1,0 +1,28 @@
+@(user: Contact)(implicit flash: play.api.mvc.Flash)
+
+@main("Your Details are:"){ 
+    	<div><h3>You have entered</h3></div>
+    	
+    	
+    	
+	<div>
+		<table class="table">
+ 				<tr>
+ 					<td>First Name</td><td>@user.firstname</td>
+ 				</tr>
+ 				<tr>
+ 					<td>Last Name</td><td>@user.lastname</td>
+ 				</tr>
+ 				<tr>
+ 					<td>Company</td><td>@user.company</td>
+ 				</tr>
+ 				<tr>
+ 					<td>Email</td><td>@user.email</td>
+ 				</tr>
+ 				<tr>
+ 					<td>Phone</td><td>@user.phones</td>
+ 				</tr>
+ 		</table>
+ 	</div>
+  
+}
